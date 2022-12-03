@@ -23,8 +23,12 @@ def index_of_max(arr):
             m = i
     return m
 
-@app.route('/', methods=['POST'])
-def predict():
+@app.route('/')
+def nothing():
+    return "Nothing to see here :)"
+
+@app.route('/guess', methods=['POST'])
+def guess():
     file = request.files['image']
     img = process_image(file)
     arr = (np.array(img) / 255).astype(np.float32)
